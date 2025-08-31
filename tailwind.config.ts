@@ -56,8 +56,8 @@ export default {
 				gaming: {
 					success: 'hsl(var(--gaming-success))',
 					warning: 'hsl(var(--gaming-warning))',
-					purple: 'hsl(var(--gaming-purple))',
-					blue: 'hsl(var(--gaming-blue))'
+					accent: 'hsl(var(--gaming-accent))',
+					dark: 'hsl(var(--gaming-dark))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

@@ -52,7 +52,7 @@ export function ScriptCard({ script, className }: ScriptCardProps) {
 
   return (
     <Card className={cn(
-      "group overflow-hidden bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-card hover:scale-[1.02]",
+      "group overflow-hidden bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:shadow-md transform-gpu",
       className
     )}>
       <div className="relative">
@@ -84,7 +84,7 @@ export function ScriptCard({ script, className }: ScriptCardProps) {
           {/* Feature indicators */}
           <div className="absolute top-3 right-3 flex flex-col gap-1">
             {script.works_on_mobile && (
-              <div className="p-1 bg-gaming-blue/90 rounded-full">
+              <div className="p-1 bg-gaming-accent/90 rounded-full">
                 <Smartphone className="w-3 h-3 text-white" />
               </div>
             )}
@@ -94,7 +94,7 @@ export function ScriptCard({ script, className }: ScriptCardProps) {
               </div>
             )}
             {script.costs_money && (
-              <div className="p-1 bg-gaming-purple/90 rounded-full">
+              <div className="p-1 bg-gaming-dark/90 rounded-full">
                 <DollarSign className="w-3 h-3 text-white" />
               </div>
             )}
@@ -154,7 +154,7 @@ export function ScriptCard({ script, className }: ScriptCardProps) {
         {script.tags.length > 0 && (
           <div className="flex flex-wrap gap-1">
             {script.tags.slice(0, 2).map((tag, index) => (
-              <Badge key={index} className="text-xs bg-primary/10 text-primary hover:bg-primary/20">
+              <Badge key={index} variant="secondary" className="text-xs bg-gaming-accent/20 text-gaming-accent border-gaming-accent/30 hover:bg-gaming-accent/30">
                 {tag}
               </Badge>
             ))}
