@@ -91,50 +91,50 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border/50 bg-card backdrop-blur-sm">
-      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+    <nav className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-lg border-b border-border/20">
+      <div className="container mx-auto px-6 h-14 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-glow">
-            <span className="text-lg font-bold text-primary-foreground">R</span>
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+            <span className="text-sm font-bold text-primary-foreground">R</span>
           </div>
-          <span className="text-xl font-bold text-foreground">
+          <span className="text-lg font-semibold text-foreground">
             RoboScript Quest
           </span>
         </Link>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-8">
           <Link 
             to="/" 
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-md"
           >
             Home
           </Link>
           <Link 
             to="/scripts" 
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-md"
           >
             Scripts
           </Link>
           <Link 
             to="/dashboard" 
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-md"
           >
             Dashboard
           </Link>
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="hidden lg:block flex-1 max-w-md mx-6">
+        <form onSubmit={handleSearch} className="hidden lg:block flex-1 max-w-sm mx-8">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search scripts, games, or features..."
+              placeholder="Search anything..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-card/50 border-border"
+              className="pl-10 bg-background/50 border-border/30 text-sm"
             />
           </div>
         </form>

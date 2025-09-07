@@ -24,8 +24,58 @@ interface Script {
 }
 
 export default function Home() {
-  const [recentScripts, setRecentScripts] = useState<Script[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [recentScripts, setRecentScripts] = useState<Script[]>([
+    // Mock data to show script card design
+    {
+      id: "1",
+      title: "Blox Fruits Auto Farm",
+      description: "Advanced auto farming script with multiple features including fruit collection, level grinding, and boss farming capabilities.",
+      thumbnail_url: "",
+      custom_thumbnail_url: "",
+      upvotes: 1234,
+      downvotes: 45,
+      views: 15678,
+      features: ["Auto Farm", "Boss Farm", "Fruit Farm"],
+      tags: ["Blox Fruits", "Farming"],
+      works_on_mobile: true,
+      has_keysystem: false,
+      costs_money: false,
+      created_at: new Date(Date.now() - 3600000).toISOString(),
+    },
+    {
+      id: "2",
+      title: "Arsenal Aimbot",
+      description: "Precise aimbot script for Arsenal with customizable settings and ESP features.",
+      thumbnail_url: "",
+      custom_thumbnail_url: "",
+      upvotes: 892,
+      downvotes: 23,
+      views: 12456,
+      features: ["Aimbot", "ESP", "Silent Aim"],
+      tags: ["Arsenal", "Combat"],
+      works_on_mobile: false,
+      has_keysystem: true,
+      costs_money: false,
+      created_at: new Date(Date.now() - 7200000).toISOString(),
+    },
+    {
+      id: "3",
+      title: "Adopt Me Auto Trade",
+      description: "Automated trading system for Adopt Me with profit calculations and scam protection.",
+      thumbnail_url: "",
+      custom_thumbnail_url: "",
+      upvotes: 567,
+      downvotes: 12,
+      views: 8934,
+      features: ["Auto Trade", "Profit Calc", "Scam Protection"],
+      tags: ["Adopt Me", "Trading"],
+      works_on_mobile: true,
+      has_keysystem: false,
+      costs_money: true,
+      created_at: new Date(Date.now() - 10800000).toISOString(),
+    }
+  ]);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -41,22 +91,15 @@ export default function Home() {
         .limit(6);
 
       if (error) {
-        toast({
-          title: "Error loading scripts",
-          description: error.message,
-          variant: "destructive",
-        });
+        console.error('Error loading scripts:', error);
         return;
       }
 
-      setRecentScripts(data || []);
+      if (data && data.length > 0) {
+        setRecentScripts(data);
+      }
     } catch (error) {
       console.error('Error fetching scripts:', error);
-      toast({
-        title: "Error",
-        description: "Failed to load scripts",
-        variant: "destructive",
-      });
     } finally {
       setLoading(false);
     }
@@ -65,11 +108,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-accent/5">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5"></div>
+      <section className="relative min-h-[80vh] overflow-hidden bg-gradient-hero flex items-center">
+        {/* Glowing vertical line effect */}
+        <div className="absolute right-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent opacity-50"></div>
+        <div className="absolute right-1/4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-primary/30 to-transparent blur-sm"></div>
+        <div className="absolute right-1/4 top-0 bottom-0 w-[4px] bg-gradient-to-b from-transparent via-primary/10 to-transparent blur-md"></div>
         
-        <div className="container mx-auto px-6 py-32 lg:py-40 relative">
-          <div className="text-center max-w-5xl mx-auto">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl">
             {/* Trust Badge */}
             <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
@@ -85,31 +131,25 @@ export default function Home() {
               </span>
             </h1>
 
-            <h2 className="text-2xl lg:text-3xl font-semibold mb-6 text-foreground/90">
+            <h2 className="text-xl lg:text-2xl font-medium mb-8 text-muted-foreground max-w-2xl">
               The Ultimate Roblox Script Platform
             </h2>
 
-            <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base text-muted-foreground mb-10 max-w-2xl leading-relaxed">
               Discover premium scripts, enhance your gameplay, and join the ultimate Roblox scripting community with thousands of verified scripts.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <Button asChild variant="hero" size="lg" className="min-w-48">
-                <Link to="/scripts">
-                  <Play className="w-5 h-5 mr-2" />
-                  Explore Scripts
-                </Link>
+            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3" asChild>
+                <Link to="/scripts">Browse Scripts</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="min-w-48">
-                <Link to="/dashboard">
-                  Browse by Game
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
+              <Button size="lg" variant="outline" className="border-border hover:bg-accent px-8 py-3" asChild>
+                <Link to="/dashboard">Try our demo</Link>
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="grid grid-cols-3 gap-8 max-w-2xl">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">1000+</div>
                 <div className="text-sm text-muted-foreground">Active Scripts</div>
@@ -128,8 +168,8 @@ export default function Home() {
       </section>
 
       {/* Recent Scripts Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-accent/30">
+        <div className="container mx-auto px-6">
           <div className="flex items-center justify-between mb-12">
             <div>
               <h2 className="text-3xl font-bold mb-4">Recent Scripts</h2>
@@ -167,7 +207,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Why Choose RoboScript Quest?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -176,7 +216,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-gradient-card border border-border/50">
+            <div className="text-center p-6 rounded-lg bg-card border border-border/50">
               <div className="w-12 h-12 bg-gaming-success/20 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-6 h-6 text-gaming-success" />
               </div>
@@ -186,9 +226,9 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="text-center p-6 rounded-lg bg-gradient-card border border-border/50">
-              <div className="w-12 h-12 bg-gaming-blue/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-gaming-blue" />
+            <div className="text-center p-6 rounded-lg bg-card border border-border/50">
+              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Users className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Community Driven</h3>
               <p className="text-muted-foreground">
@@ -196,9 +236,9 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="text-center p-6 rounded-lg bg-gradient-card border border-border/50">
-              <div className="w-12 h-12 bg-gaming-purple/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Download className="w-6 h-6 text-gaming-purple" />
+            <div className="text-center p-6 rounded-lg bg-card border border-border/50">
+              <div className="w-12 h-12 bg-gaming-warning/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Download className="w-6 h-6 text-gaming-warning" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Easy to Use</h3>
               <p className="text-muted-foreground">
@@ -211,8 +251,8 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-gaming relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative">
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="container mx-auto px-6 relative">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Level Up Your Roblox Experience?

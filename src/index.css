@@ -6,51 +6,52 @@
 
 @layer base {
   :root {
-    /* Modern dark theme with orange accents */
-    --background: 0 0% 12%;             /* #1e1e1e */
+    /* Modern dark theme with blue accents */
+    --background: 0 0% 8%;              /* #141414 - Very dark background */
     --foreground: 210 20% 98%;          /* Almost white */
 
-    --card: 0 0% 14%;                   /* #232323 */
+    --card: 0 0% 10%;                   /* #1a1a1a - Dark cards */
     --card-foreground: 210 20% 98%;     /* Light text on cards */
 
-    --popover: 0 0% 14%;                /* Same as card */
+    --popover: 0 0% 10%;                /* Same as card */
     --popover-foreground: 210 20% 98%;  /* Light text */
 
-    /* Orange primary theme */
-    --primary: 24 100% 50%;             /* Orange #ff6600 */
-    --primary-foreground: 210 20% 98%;  /* White text on orange */
-    --primary-glow: 24 100% 60%;        /* Lighter orange for glow effects */
+    /* Blue primary theme */
+    --primary: 220 100% 60%;            /* Bright blue #3366ff */
+    --primary-foreground: 210 20% 98%;  /* White text on blue */
+    --primary-glow: 220 100% 70%;       /* Lighter blue for glow effects */
 
-    --secondary: 0 0% 15%;              /* #252525 */
+    --secondary: 0 0% 12%;              /* #1f1f1f */
     --secondary-foreground: 210 20% 98%; /* Light text */
 
-    --muted: 0 0% 15%;                  /* #252525 */
+    --muted: 0 0% 12%;                  /* #1f1f1f */
     --muted-foreground: 217 11% 65%;    /* Muted text */
 
-    --accent: 0 0% 16%;                 /* #272727 */
+    --accent: 0 0% 14%;                 /* #242424 */
     --accent-foreground: 210 20% 98%;   /* White text on accent */
 
     --destructive: 0 62% 50%;           /* Red for destructive actions */
     --destructive-foreground: 210 20% 98%; /* White text */
 
-    --border: 0 0% 16%;                 /* #272727 */
-    --input: 0 0% 18%;                  /* #2e2e2e */
-    --ring: 24 100% 50%;                /* Focus ring, orange */
+    --border: 0 0% 15%;                 /* #262626 */
+    --input: 0 0% 16%;                  /* #292929 */
+    --ring: 220 100% 60%;               /* Focus ring, blue */
 
     /* Gaming-specific colors */
     --gaming-success: 142 71% 45%;      /* Green for success */
     --gaming-warning: 38 92% 50%;       /* Orange for warnings */
-    --gaming-accent: 24 100% 50%;       /* Orange accent */
-    --gaming-dark: 0 0% 20%;            /* #333333 */
+    --gaming-accent: 220 100% 60%;      /* Blue accent */
+    --gaming-dark: 0 0% 6%;             /* #0f0f0f - Very dark */
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-gaming: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--gaming-accent)) 50%, hsl(var(--gaming-dark)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--gaming-dark)) 100%);
     
     /* Effects */
-    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.2);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.4);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.75rem;
