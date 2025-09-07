@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    /* Dark gaming theme */
-    --background: 222 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Modern dark theme with orange accents */
+    --background: 0 0% 12%;             /* #1e1e1e */
+    --foreground: 210 20% 98%;          /* Almost white */
 
-    --card: 217 32.6% 8.5%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 14%;                   /* #232323 */
+    --card-foreground: 210 20% 98%;     /* Light text on cards */
 
-    --popover: 217 32.6% 8.5%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 14%;                /* Same as card */
+    --popover-foreground: 210 20% 98%;  /* Light text */
 
-    /* Dark red gaming theme */
-    --primary: 0 70% 50%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 0 70% 60%;
+    /* Orange primary theme */
+    --primary: 24 100% 50%;             /* Orange #ff6600 */
+    --primary-foreground: 210 20% 98%;  /* White text on orange */
+    --primary-glow: 24 100% 60%;        /* Lighter orange for glow effects */
 
-    --secondary: 217 32.6% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;              /* #252525 */
+    --secondary-foreground: 210 20% 98%; /* Light text */
 
-    --muted: 217 32.6% 12%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;                  /* #252525 */
+    --muted-foreground: 217 11% 65%;    /* Muted text */
 
-    --accent: 217 32.6% 15%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 16%;                 /* #272727 */
+    --accent-foreground: 210 20% 98%;   /* White text on accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;           /* Red for destructive actions */
+    --destructive-foreground: 210 20% 98%; /* White text */
 
-    --border: 217 32.6% 15%;
-    --input: 217 32.6% 12%;
-    --ring: 348 83% 58%;
+    --border: 0 0% 16%;                 /* #272727 */
+    --input: 0 0% 18%;                  /* #2e2e2e */
+    --ring: 24 100% 50%;                /* Focus ring, orange */
 
     /* Gaming-specific colors */
-    --gaming-success: 142 76% 36%;
-    --gaming-warning: 48 96% 53%;
-    --gaming-accent: 0 70% 60%;
-    --gaming-dark: 0 70% 40%;
+    --gaming-success: 142 71% 45%;      /* Green for success */
+    --gaming-warning: 38 92% 50%;       /* Orange for warnings */
+    --gaming-accent: 24 100% 50%;       /* Orange accent */
+    --gaming-dark: 0 0% 20%;            /* #333333 */
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
@@ -49,8 +49,8 @@
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--accent)));
     
     /* Effects */
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 8px 32px hsl(222 84% 4.9% / 0.4);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.75rem;

@@ -91,14 +91,14 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <nav className="sticky top-0 z-50 w-full border-b border-border/50 bg-card backdrop-blur-sm">
+      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-sm font-bold text-primary-foreground">RS</span>
+        <Link to="/" className="flex items-center space-x-3">
+          <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-glow">
+            <span className="text-lg font-bold text-primary-foreground">R</span>
           </div>
-          <span className="text-xl font-bold bg-gradient-gaming bg-clip-text text-transparent">
+          <span className="text-xl font-bold text-foreground">
             RoboScript Quest
           </span>
         </Link>
@@ -118,10 +118,10 @@ export function Navbar() {
             Scripts
           </Link>
           <Link 
-            to="/popular" 
+            to="/dashboard" 
             className="text-foreground hover:text-primary transition-colors font-medium"
           >
-            Popular
+            Dashboard
           </Link>
         </div>
 

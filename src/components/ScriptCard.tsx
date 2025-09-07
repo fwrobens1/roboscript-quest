@@ -52,22 +52,22 @@ export function ScriptCard({ script, className }: ScriptCardProps) {
 
   return (
     <Card className={cn(
-      "group overflow-hidden bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:shadow-md transform-gpu",
+      "group overflow-hidden bg-card border-border/30 hover:border-primary/40 transition-all duration-300 hover:shadow-card",
       className
     )}>
       <div className="relative">
         {/* Thumbnail */}
-        <div className="aspect-video bg-muted/30 relative overflow-hidden">
+        <div className="aspect-video bg-muted relative overflow-hidden">
           {showImage ? (
             <img
               src={thumbnailUrl}
               alt={script.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-cover"
               onError={() => setImageError(true)}
             />
           ) : (
-            <div className="w-full h-full bg-gradient-gaming flex items-center justify-center">
-              <div className="text-4xl font-bold text-primary-foreground opacity-50">
+            <div className="w-full h-full bg-gradient-to-br from-accent to-muted flex items-center justify-center">
+              <div className="text-4xl font-bold text-muted-foreground/30">
                 {script.title.charAt(0).toUpperCase()}
               </div>
             </div>
@@ -75,7 +75,7 @@ export function ScriptCard({ script, className }: ScriptCardProps) {
           
           {/* Status badges */}
           <div className="absolute top-3 left-3 flex flex-wrap gap-1">
-            <Badge variant="secondary" className="bg-gaming-success/90 text-white text-xs">
+            <Badge variant="secondary" className="bg-gaming-success text-white text-xs border-0">
               <Shield className="w-3 h-3 mr-1" />
               Verified
             </Badge>
@@ -84,85 +84,67 @@ export function ScriptCard({ script, className }: ScriptCardProps) {
           {/* Feature indicators */}
           <div className="absolute top-3 right-3 flex flex-col gap-1">
             {script.works_on_mobile && (
-              <div className="p-1 bg-gaming-accent/90 rounded-full">
-                <Smartphone className="w-3 h-3 text-white" />
+              <div className="p-1.5 bg-primary rounded-md">
+                <Smartphone className="w-3 h-3 text-primary-foreground" />
               </div>
             )}
             {script.has_keysystem && (
-              <div className="p-1 bg-gaming-warning/90 rounded-full">
+              <div className="p-1.5 bg-gaming-warning rounded-md">
                 <Key className="w-3 h-3 text-white" />
               </div>
             )}
             {script.costs_money && (
-              <div className="p-1 bg-gaming-dark/90 rounded-full">
-                <DollarSign className="w-3 h-3 text-white" />
+              <div className="p-1.5 bg-destructive rounded-md">
+                <DollarSign className="w-3 h-3 text-destructive-foreground" />
               </div>
             )}
           </div>
 
-          {/* Stats overlay */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-            <div className="flex items-center justify-between text-white text-sm">
-              <div className="flex items-center space-x-3">
-                <div className="flex items-center space-x-1">
-                  <ThumbsUp className="w-3 h-3" />
-                  <span>{formatCount(script.upvotes)}</span>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <ThumbsDown className="w-3 h-3" />
-                  <span>{formatCount(script.downvotes)}</span>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <Eye className="w-3 h-3" />
-                  <span>{formatCount(script.views)}</span>
-                </div>
-              </div>
-              <span className="text-xs opacity-75">{getTimeAgo(script.created_at)}</span>
-            </div>
+          {/* Date overlay */}
+          <div className="absolute bottom-3 right-3">
+            <span className="text-xs bg-black/60 text-white px-2 py-1 rounded-md">
+              {getTimeAgo(script.created_at)}
+            </span>
           </div>
         </div>
       </div>
 
-      <CardContent className="p-4 space-y-3">
+      <CardContent className="p-4 space-y-4">
         {/* Title and Description */}
         <div>
-          <h3 className="font-semibold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">
+          <h3 className="font-semibold text-card-foreground line-clamp-1 mb-2 group-hover:text-primary transition-colors">
             {script.title}
           </h3>
-          <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
+          <p className="text-sm text-muted-foreground line-clamp-2">
             {script.description}
           </p>
         </div>
 
-        {/* Features */}
-        {script.features.length > 0 && (
-          <div className="flex flex-wrap gap-1">
-            {script.features.slice(0, 3).map((feature, index) => (
-              <Badge key={index} variant="outline" className="text-xs">
-                {feature}
-              </Badge>
-            ))}
-            {script.features.length > 3 && (
-              <Badge variant="outline" className="text-xs">
-                +{script.features.length - 3} more
-              </Badge>
-            )}
+        {/* Game Tag (Primary) */}
+        {script.tags.length > 0 && (
+          <div>
+            <Badge className="bg-primary/10 text-primary border-primary/20 text-xs font-medium">
+              {script.tags[0]}
+            </Badge>
           </div>
         )}
 
-        {/* Tags */}
-        {script.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1">
-            {script.tags.slice(0, 2).map((tag, index) => (
-              <Badge key={index} variant="secondary" className="text-xs bg-gaming-accent/20 text-gaming-accent border-gaming-accent/30 hover:bg-gaming-accent/30">
-                {tag}
-              </Badge>
-            ))}
+        {/* Stats Row */}
+        <div className="flex items-center justify-between text-xs text-muted-foreground">
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-1">
+              <ThumbsUp className="w-3 h-3" />
+              <span>{formatCount(script.upvotes)}</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Eye className="w-3 h-3" />
+              <span>{formatCount(script.views)}</span>
+            </div>
           </div>
-        )}
+        </div>
 
         {/* Action Button */}
-        <Button asChild variant="outline" className="w-full mt-3">
+        <Button asChild variant="outline" className="w-full border-border/50 hover:border-primary/50 hover:bg-primary/5">
           <Link to={`/script/${script.id}`}>
             View Script
           </Link>

@@ -65,35 +65,32 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
-        <div className="absolute inset-0 opacity-30 animate-float">
-          <div className="w-full h-full bg-gradient-gaming/10"></div>
-        </div>
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-accent/5">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5"></div>
         
-        <div className="container mx-auto px-4 py-20 lg:py-32 relative">
-          <div className="text-center max-w-4xl mx-auto">
+        <div className="container mx-auto px-6 py-32 lg:py-40 relative">
+          <div className="text-center max-w-5xl mx-auto">
             {/* Trust Badge */}
-            <div className="inline-flex items-center space-x-2 bg-gaming-success/10 border border-gaming-success/20 rounded-full px-4 py-2 mb-8">
-              <div className="w-2 h-2 bg-gaming-success rounded-full animate-pulse"></div>
-              <span className="text-sm text-gaming-success font-medium">
+            <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              <span className="text-sm text-primary font-medium">
                 Trusted by 100K+ Roblox players
               </span>
             </div>
 
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              Get the Best{" "}
-              <span className="bg-gradient-gaming bg-clip-text text-transparent">
-                Roblox Scripts
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              Your Scripts, Your{" "}
+              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                Way
               </span>
-              !
             </h1>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Find free and working scripts for your favorite Roblox games like{" "}
-              <span className="text-primary font-medium">Blox Fruits</span>,{" "}
-              <span className="text-primary font-medium">Adopt Me</span>,{" "}
-              <span className="text-primary font-medium">Arsenal</span>, and thousands more. 
-              Updated daily by our community.
+            <h2 className="text-2xl lg:text-3xl font-semibold mb-6 text-foreground/90">
+              The Ultimate Roblox Script Platform
+            </h2>
+
+            <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+              Discover premium scripts, enhance your gameplay, and join the ultimate Roblox scripting community with thousands of verified scripts.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -104,7 +101,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="min-w-48">
-                <Link to="/popular">
+                <Link to="/dashboard">
                   Browse by Game
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
